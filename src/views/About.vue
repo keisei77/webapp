@@ -4,3 +4,9 @@
     <p>Keisei</p>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'about'
+}
+</script>
