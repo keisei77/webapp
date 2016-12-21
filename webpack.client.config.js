@@ -3,7 +3,7 @@ const webpack = require('webpack')
 const isProd = process.env.NODE_ENV === 'production'
 
 module.exports = {
-  devtool: '#eval-source-map',
+  devtool: '#source-map',
   entry: './src/client-entry.js',
   output: {
     path: path.resolve(__dirname, './dist'),
@@ -28,7 +28,7 @@ module.exports = {
         text: /\.(png|jpg|gif|svg)$/,
         loader: 'file',
         query: {
-          name: '[name].[ext]?[hase]'
+          name: '[name].[ext]?[hash]'
         }
       }
     ]
@@ -46,8 +46,7 @@ module.exports = {
   ]
 }
 
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
+if (process.env.NODE_ENV === 'production' && process.env.VUE_ENV !== 'server') {
   module.exports.plugins = module.exports.plugins.concat([
     new webpack.optimize.UglifyJsPlugin({
       compress: {
