@@ -10,12 +10,16 @@ export default new Router({
   mode: 'history',
   routes: [
     {
-      path: '/',
+      path: '/news/:page',
       component: News
     },
     {
       path: '/about',
       component: About
+    },
+    {
+      path: '*',
+      redirect: '/news/1'
     }
   ]
 })
