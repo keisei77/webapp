@@ -45,7 +45,7 @@ if (process.env.NODE_ENV !== 'production') {
   const serverCompiler = webpack(serverConfig)
   const mfs = new MFS()
   serverCompiler.outputFileSystem = mfs
-  serverCompiler.watch({}, (err, stats) = {
+  serverCompiler.watch({}, (err, stats) => {
     if (err) throw err
     stats = stats.toJson()
     stats.errors.forEach(err => console.error(err))
@@ -58,7 +58,7 @@ if (process.env.NODE_ENV !== 'production') {
   renderer = createRenderer(fs)
 }
 
-app.use(favicon(path.resolve(__dirname, 'src/assets/keisei.png')))
+app.use(favicon(path.resolve(__dirname, 'src/assets/Harry.jpg')))
 
 app.get('*', (req, res) => {
   var s = Date.now()
